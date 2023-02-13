@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\staticController;
 
@@ -17,31 +18,12 @@ use App\Http\Controllers\staticController;
 Route::get('/', function () {
     return view('welcome');
 
-});
+})->name('welcome');
 Route::get('/index',[staticController::class,'index'])->name('home.index');
 Route::get('/menu',[staticController::class,'menu'])->name('home.menu');
 Route::resource('dishes',DishescController::class);
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/store/{category?}/{items?}', function ($category=null,$items=null) {
-//     if(isset($category)){
-//         if(isset($items)){
-//         return "<h1>{$items}</h1>";   
-//         }
-//         return "<h1>{$category}</h1>";
-//     }return '<h1>store</h1>';
-    
-// });
-// Route::get('/about', function () {
-//     $filter =request('style');
-//     if(isset($filter)){
-//         return 'this page is for <span style="color : red">'.strip_tags($filter).'</span>';
-//     }
-//     return 'this page is for <span style="color : red">All products</span>';
-    
-// });
+Route::resource('landing_page',landingPage::class);
+ 
 
 Route::middleware([
     'auth:sanctum',

@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <span style="font-family: 'Style Script', cursive;color: #E8BC74;font-size: 2.5rem;">You Restau</span>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

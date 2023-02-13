@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 use App\Models\Dishe;
 class DishescController extends Controller
@@ -24,6 +25,7 @@ class DishescController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('dishes.create');
@@ -35,13 +37,19 @@ class DishescController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
+        // $request->validate([
+        //     'dishe-name'=>'required',
+        //     'dishe-date'=>'required',
+        //     'dishe-description'=>'required',
+        //     'dishe-image'=>'required',
+        // ]);
        $dishe= new Dishe();
-       $dishe->name= $request->input('dishe-name');
+       $dishe->name= strip_tags($request->input('dishe-name'));
        $dishe->date= $request->input('dishe-date');
        $dishe->description= $request->input('dishe-description');
-       $dishe->image= $request->input('dishe-image');
+       $dishe->image= $request->file('dishe-image')->store('dishe-image', 'public');
        $dishe->save();
        return redirect()->route('dishes.index');
     }
@@ -65,9 +73,11 @@ class DishescController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($dishe)
     {
-        //
+        return view('dishes.edit',[
+            'dishe'=>Dishe::findOrFail($dishe)
+        ]);
     }
 
     /**
@@ -77,9 +87,21 @@ class DishescController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$dishe)
     {
-        //
+        $request->validate([
+            'dishe-name'=>'required',
+            'dishe-date'=>'required',
+            'dishe-description'=>'required',
+            'dishe-image'=>'required',
+        ]);
+       $toUpdate=Dishe::findOrFail($dishe);
+       $toUpdate->name= strip_tags($request->input('dishe-name'));
+       $toUpdate->date= $request->input('dishe-date');
+       $toUpdate->description= $request->input('dishe-description');
+       $toUpdate->image= $request->file('dishe-image')->store('dishe-image', 'public');
+       $toUpdate->save();
+       return redirect()->route('dishes.show',$dishe);
     }
 
     /**
@@ -88,8 +110,11 @@ class DishescController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($dishe)
     {
-        //
+        $toDelet=Dishe::findOrFail($dishe);
+        $toDelet->delete();
+        return redirect()->route('dishes.index');
     }
+
 }

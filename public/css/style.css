@@ -1,24 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
 body {
     font-family: 'Nunito', sans-serif;
 }
 
 .form {
-    background-color: #15172b;
+    background-color: #F5F5F5;
     color: white;
     border-radius: 20px;
     box-sizing: border-box;
     height: 80vh;
     padding: 20px;
     width: 40vw;
+    border: solid 1px black;
+    border-radius: 20px;
+    box-shadow: 5px 10px grey;
+    ;
 }
 
 .title {
-    color: #eee;
+    color: black;
     font-family: sans-serif;
     margin-top: 30px;
 }
 
 .input-container {
+    color: #3d3a3a;
     height: 50px;
     position: relative;
     width: 100%;
@@ -30,11 +36,11 @@ body {
 }
 
 .input {
-    background-color: #303245 !important;
+    background-color: white;
     border-radius: 12px;
     border: 22px;
     box-sizing: border-box;
-    color: #eee;
+    color: #3d3a3a;
     font-size: 18px;
     height: 100%;
     outline: 0;
@@ -46,14 +52,13 @@ body {
     width: 50px;
 }
 
-.input:focus~.cut,
+.input:focus.cut,
 .input:not(:placeholder-shown)~.cut {
     transform: translateY(8px);
 }
 
 .btn-submit {
-    background-color: #08d;
-    border-radius: 12px;
+    background-color: #E8BC74;
     border: 0;
     box-sizing: border-box;
     color: #eee;
@@ -64,8 +69,159 @@ body {
     outline: 0;
     text-align: center;
     width: 100%;
+    border-radius: 15px;
 }
 
 .btn-submit:active {
-    background-color: #06b;
+    background-color: #8d6b34;
+}
+
+.form-error {
+    margin: 0;
+    color: #F40030;
+}
+
+#bg-table {
+    background-color: #a80626 !important;
+}
+
+.menuTitle::before {
+    content: " ";
+    width: 20rem;
+    height: 0.2rem;
+    background-color: #E8BC74;
+    position: absolute;
+    left: -80%;
+    top: 40%;
+}
+
+.menuTitle::after {
+    content: " ";
+    width: 20rem;
+    height: 0.2rem;
+    background-color: #E8BC74;
+    position: absolute;
+    left: 120%;
+    top: 40%;
+}
+
+.menuTitle {
+    font-family: 'Style Script', cursive;
+    color: #E8BC74;
+    font-size: 5rem;
+    position: relative;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+}
+
+#nav {
+    color: #E8BC74;
+    font-size: 1rem;
+}
+
+.dash-title {
+    font-family: 'Style Script', cursive;
+    color: black;
+    font-size: 5rem;
+    position: relative;
+}
+
+.show-btn {
+    background-color: #E8BC74;
+    border-radius: 15px;
+    padding: .5rem;
+}
+
+.create-btn {
+    background-color: black;
+    border-radius: 15px;
+    padding: 1rem;
+    color: white;
+    margin-left: 60rem;
+}
+
+.dash-logo {
+    font-family: 'Style Script', cursive;
+    color: #E8BC74;
+    font-size: 5rem;
+    position: relative;
+}
+
+.logo {
+    margin-top: 4rem;
+}
+
+#dash-header {
+    margin-left: 65rem;
+    margin-right: 1rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-delete {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-delete {
+    margin-left: 1rem;
+    background-color: #a80626;
+    border-radius: 15px;
+    padding: .7rem;
+}
+
+.btn-edite {
+    background-color: #527747;
+    border-radius: 15px;
+    padding: .7rem;
+}
+
+#welcome-div {
+    background-color: #F5F5F5;
+    width: 60rem;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#bg {
+    background-color: #D6D7D9;
+}
+
+.welcome-title {
+    /* text-align: center; */
+    margin-top: 15%;
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.logo-w {
+    font-family: 'Nunito', sans-serif;
+    ;
+    color: #E8BC74;
+    font-size: 1.8rem;
+}
+
+.menu-btn {
+    background-color: #E8BC74;
+    padding: 1rem;
+    border-radius: 10rem;
+    text-decoration: none;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.menu-div {
+    margin-top: 2rem;
 }
